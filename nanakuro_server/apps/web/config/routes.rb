@@ -6,5 +6,4 @@
 
 root to: 'home#index'
 
-resources :questions, only: [:index, :create, :update]
-
+resources :questions, only: [:index, :create, :update, :destroy]
