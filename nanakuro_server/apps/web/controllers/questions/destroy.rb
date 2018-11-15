@@ -10,7 +10,7 @@ module Web
           if @question = repository.find(params[:id])
             repository.delete(@question.id)
           else
-            halt 404, { messages: ["Resource NOT FOUND"] }
+            halt 404, { messages: ["Resource NOT FOUND"] }.to_json
           end
         end
       end
