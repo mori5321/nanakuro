@@ -1,12 +1,12 @@
 module Web
   module Views
     module Questions
-      class Index
+      class Create
         include Web::View
         format :json
 
         def render
-          raw EachSerializer.new(questions, QuestionSerializer).to_json
+          raw QuestionSerializer.new(question).to_json
         end
       end
     end
