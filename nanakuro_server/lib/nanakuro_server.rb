@@ -1,0 +1,2 @@
+module NanakuroServer
+end

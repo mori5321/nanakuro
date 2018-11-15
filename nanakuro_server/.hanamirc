@@ -1,0 +1,3 @@
+project=nanakuro_server
+test=rspec
+template=erb
