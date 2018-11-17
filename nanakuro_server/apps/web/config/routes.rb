@@ -7,3 +7,4 @@
 root to: 'home#index'
 
 resources :questions, only: [:index, :create, :update, :destroy]
+resources :question_groups, only: :index
