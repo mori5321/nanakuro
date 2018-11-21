@@ -11,3 +11,4 @@ resources :question_groups, only: :index
 resources :users, only: :create
 
 post '/sign_in', to: 'sessions#create'
+delete '/sign_out', to: 'sessions#destroy'
