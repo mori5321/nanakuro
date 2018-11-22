@@ -6,7 +6,7 @@ module Web
         format :json
 
         def render
-          EachSerializer.new(questions, QuestionSerializer).to_json
+          raw EachSerializer.new(questions, QuestionSerializer).to_json
         end
       end
     end
