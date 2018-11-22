@@ -31,3 +31,6 @@ How to prepare (create and migrate) DB for `development` and `test` environments
 ```
 
 Explore Hanami [guides](http://hanamirb.org/guides/), [API docs](http://docs.hanamirb.org/1.3.0/), or jump in [chat](http://chat.hanamirb.org) for help. Enjoy! 🌸
+
+
+# Model Sequence
