@@ -7,7 +7,7 @@ module Web
 
         def call(params)
           questionRepo = QuestionRepository.new
-          @questions = questionRepo.all
+          @questions = questionRepo.all_with_question_group
         end
       end
     end
