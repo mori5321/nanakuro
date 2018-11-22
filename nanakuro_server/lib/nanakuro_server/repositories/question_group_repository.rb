@@ -14,6 +14,6 @@ class QuestionGroupRepository < Hanami::Repository
   end
 
   def find_with_questions(id)
-    aggregate(:questions).where(id: id).as(QuestionGroup).one
+    aggregate(:questions).where(id: id).map_to(QuestionGroup).one
   end
 end

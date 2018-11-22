@@ -4,9 +4,6 @@
     <div>
       <div v-for="qg in questionGroups" :key="qg.id">
         {{ qg.title }}
-        <div v-for="question in qg.questions" :key="question.id">
-          {{ question.text }}
-        </div>
       </div>
     </div>
   </section>
