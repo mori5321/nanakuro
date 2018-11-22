@@ -23,6 +23,13 @@ module Web
         'views'
       ]
 
+      middleware.use Rack::Cors do
+        allow do
+          origins '*'
+          resource '*', headers: :any, methods: [:get, :post, :patch, :options]
+        end
+      end
+
       # Handle exceptions with HTTP statuses (true) or don't catch them (false).
       # Defaults to true.
       # See: http://www.rubydoc.info/gems/hanami-controller/#Exceptions_management
