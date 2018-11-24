@@ -1,30 +1,28 @@
 <template>
-  <v-toolbar fixed dark color="teal lighten-2">
-    <!-- <v-toolbar-side-icon></v-toolbar-side-icon> -->
-
-    <v-toolbar-title>Nanakuro</v-toolbar-title>
-
-    <v-spacer></v-spacer>
-
-    <v-btn icon>
-      <v-icon>search</v-icon>
-    </v-btn>
-
-<!--     <v-btn icon>
-      <v-icon>apps</v-icon>
-    </v-btn> -->
-  </v-toolbar>
+  <div class="header teal lighten-2">
+    <nuxt-link
+      to="/question_groups">
+      <div class="logo">
+        nanakuro
+      </div>
+    </nuxt-link>
+  </div>
 </template>
 
 <style scoped lang="scss">
 
 .header {
-  background: $darkGreen;
+  // background: $darkGreen;
   color: $white;
   display: flex;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 100;
   justify-content: space-between;
   align-items: center;
-  height: 50px;
+  height: 60px;
   font-size: 1.5rem;
 }
 

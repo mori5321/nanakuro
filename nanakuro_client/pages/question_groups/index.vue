@@ -2,39 +2,40 @@
   <v-layout row>
     <v-flex xs12 sm6 offset-sm3>
       <v-list two-line>
-        <template v-for="(qg, index) in questionGroups">
+        <div v-for="(qg, index) in questionGroups" :key="qg.id">
            <v-divider
               v-if="index !== 0"
-              :key="qg.id"
+              :key="'divider-'+qg.id"
             ></v-divider>
-          <v-list-tile
-            :key="qg.title"
-            avatar
-            ripple
-          >
-            <v-list-tile-content>
-              <v-list-tile-title>{{ qg.title }}</v-list-tile-title>
-              <v-list-tile-sub-title class="text--primary">{{ qg.title }}</v-list-tile-sub-title>
-              <!-- <v-list-tile-sub-title>{{ qg.title }}</v-list-tile-sub-title> -->
-            </v-list-tile-content>
-
-            <v-list-tile-action>
-              <!-- <v-list-tile-action-text>{{ qg.title }}</v-list-tile-action-text> -->
-              <v-icon
-                color="grey lighten-1"
+            <nuxt-link
+              :to="'/question_groups/'+qg.id"
+              :key="'link-'+qg.id"
+            >
+              <v-list-tile
+                avatar
+                ripple
               >
-                star_border
-              </v-icon>
+                <v-list-tile-content>
+                  <v-list-tile-title>{{ qg.title }}</v-list-tile-title>
+                  <v-list-tile-sub-title class="text--primary">{{ qg.title }}</v-list-tile-sub-title>
+                </v-list-tile-content>
 
-              <!-- <v-icon
-                v-else
-                color="yellow darken-2"
-              >
-                star
-              </v-icon> -->
-            </v-list-tile-action>
-          </v-list-tile>
-        </template>
+                <v-list-tile-action>
+                  <v-icon
+                    color="grey lighten-1"
+                  >
+                    star_border
+                  </v-icon>
+                  <!-- <v-icon
+                    v-else
+                    color="yellow darken-2"
+                  >
+                    star
+                  </v-icon> -->
+                </v-list-tile-action>
+            </v-list-tile>
+          </nuxt-link>
+        </div>
       </v-list>
     </v-flex>
   </v-layout>
@@ -49,7 +50,7 @@ export default {
       questionGroups: []
     }
   },
-  created() {
+  mounted() {
     Api().get('/question_groups')
       .then(res => {
         this.questionGroups = res.data
