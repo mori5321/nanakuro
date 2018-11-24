@@ -1,7 +1,7 @@
 <template>
   <section>
     <div>
-      {{ questionGroup.title }}
+      <h1>{{ questionGroup.title }}</h1>
       <div v-for="question in questionGroup.questions" :key="question.id">
         {{ question.text }}
       </div>

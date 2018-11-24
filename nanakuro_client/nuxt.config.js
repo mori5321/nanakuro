@@ -1,4 +1,6 @@
 const pkg = require('./package')
+const path = require('path')
+import colors from 'vuetify/es5/util/colors'
 
 module.exports = {
   mode: 'universal',
@@ -29,20 +31,34 @@ module.exports = {
   /*
   ** Global CSS
   */
-  css: ['element-ui/lib/theme-chalk/index.css'],
 
-  /*
-  ** Plugins to load before mounting the App
-  */
-  plugins: ['@/plugins/element-ui'],
 
   /*
   ** Nuxt.js modules
   */
   modules: [
     // Doc: https://github.com/nuxt-community/axios-module#usage
-    '@nuxtjs/axios'
+    '@nuxtjs/axios',
+
+    '@nuxtjs/vuetify',
+
+
+    ['nuxt-sass-resources-loader',
+      [
+        '@/assets/styles/_variables.scss',
+      ]
+    ],
   ],
+
+  vuetify: {
+    theme: {
+      primary: '#7EC2C2',
+      secondary: '#9DDCDC',
+      accent: '#E67A7A',
+      error: '#E67A7A',
+    }
+  },
+
   /*
   ** Axios module configuration
   */
