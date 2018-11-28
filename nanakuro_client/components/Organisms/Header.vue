@@ -3,7 +3,7 @@
     <nuxt-link
       to="/question_groups">
       <div class="logo">
-        nanakuro
+        nanaQuro
       </div>
     </nuxt-link>
   </div>
