@@ -5,7 +5,7 @@ Hanami::Model.migration do
       column :unique_id, String, null: false, unique: true
       column :created_at, DateTime, null: false
       column :updated_at, DateTime, null: false
-      foreign_key :question_room_id, :question_rooms, on_delete: :cascade, null: false
+      foreign_key :question_group_id, :question_groups, on_delete: :cascade, null: false
     end
   end
 end
