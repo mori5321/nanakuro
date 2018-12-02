@@ -1,8 +1,8 @@
 <template>
-  <v-layout row>
-    <v-flex xs12 sm6 offset-sm3>
+  <v-layout row justify-center>
+    <v-flex xs11 sm6>
       <h4 class="question-group-title">{{ questionGroup.title }}</h4>
-      <v-list two-line>
+      <v-list>
         <div v-for="(question, index) in questionGroup.questions" :key="question.id">
            <v-divider
               v-if="index !== 0"

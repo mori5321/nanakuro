@@ -26,4 +26,8 @@
   font-size: 1.5rem;
 }
 
+.logo {
+  margin-left: 15px;
+}
+
 </style>
