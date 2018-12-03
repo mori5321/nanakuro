@@ -18,7 +18,11 @@
         </div>
       </v-list>
       <v-layout justify-center>
-        <v-btn depressed large class="teal lighten-2 white--text">ルームを作成</v-btn>
+        <v-btn
+          @click="createRoom"
+          depressed
+          large
+          class="teal lighten-2 white--text">ルームを作成</v-btn>
       </v-layout>
     </v-flex>
   </v-layout>
@@ -43,6 +47,18 @@ export default {
       }).catch(err => {
         console.log(err)
       })
+  },
+  methods: {
+    createRoom: function(e) {
+      const params = this.$route.params
+      Api().post(`/question_groups/${params.id}/question_rooms`)
+        .then(res => {
+          console.log(res)
+          this.$router.push({ path: `/question_rooms/${res.data.unique_id}` })
+        }).catch(err => {
+          console.log(err)
+        })
+    }
   }
 }
 </script>
