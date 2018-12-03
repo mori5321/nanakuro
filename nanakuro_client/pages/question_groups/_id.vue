@@ -2,7 +2,7 @@
   <v-layout row justify-center v-show="shown" class="container">
     <v-flex xs11 sm6>
       <h4 class="question-group-title">{{ questionGroup.title }}</h4>
-      <v-list>
+      <v-list class="questionsList">
         <div v-for="(question, index) in questionGroup.questions" :key="question.id">
            <v-divider
               v-if="index !== 0"
@@ -63,6 +63,10 @@ section {
 
 .container {
   padding-bottom: 30px;
+}
+
+.questionsList {
+  margin-bottom: 8px;
 }
 
 .questionText {
