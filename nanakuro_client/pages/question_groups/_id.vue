@@ -1,5 +1,5 @@
 <template>
-  <v-layout row justify-center>
+  <v-layout row justify-center v-show="shown" class="container">
     <v-flex xs11 sm6>
       <h4 class="question-group-title">{{ questionGroup.title }}</h4>
       <v-list>
@@ -8,36 +8,18 @@
               v-if="index !== 0"
               :key="'divider-'+question.id"
             ></v-divider>
-            <nuxt-link
-              :to="'/question_groups/'+question.id"
-              :key="'link-'+question.id"
+            <v-list-tile
+              ripple
             >
-              <v-list-tile
-                avatar
-                ripple
-              >
-                <v-list-tile-content>
-                  <v-list-tile-title>{{ question.text }}</v-list-tile-title>
-                  <!-- <v-list-tile-sub-title class="text--primary">{{ question.text }}</v-list-tile-sub-title> -->
-                </v-list-tile-content>
-
-                <!-- <v-list-tile-action> -->
-                  <!-- <v-icon
-                    color="grey lighten-1"
-                  >
-                    star_border
-                  </v-icon> -->
-                  <!-- <v-icon
-                    v-else
-                    color="yellow darken-2"
-                  >
-                    star
-                  </v-icon> -->
-                <!-- </v-list-tile-action> -->
-            </v-list-tile>
-          </nuxt-link>
+              <v-list-tile-content>
+                <v-list-tile-title class="questionText">{{ question.text }}</v-list-tile-title>
+              </v-list-tile-content>
+          </v-list-tile>
         </div>
       </v-list>
+      <v-layout justify-center>
+        <v-btn depressed large class="teal lighten-2 white--text">ルームを作成</v-btn>
+      </v-layout>
     </v-flex>
   </v-layout>
 </template>
@@ -48,7 +30,8 @@ import Api from '@/services/Api.js'
 export default {
   data() {
     return {
-      questionGroup: ""
+      questionGroup: "",
+      shown: false,
     }
   },
   mounted: function() {
@@ -56,6 +39,7 @@ export default {
     Api().get(`/question_groups/${params.id}`)
       .then(res => {
         this.questionGroup = res.data
+        this.shown = true
       }).catch(err => {
         console.log(err)
       })
@@ -75,6 +59,14 @@ section {
   font-size: 1.1rem;
   text-align: center;
   padding: 30px 0 10px;
+}
+
+.container {
+  padding-bottom: 30px;
+}
+
+.questionText {
+  font-size: 14px;
 }
 
 </style>

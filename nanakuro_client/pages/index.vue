@@ -9,7 +9,7 @@
       </h2>
       <div class="links">
         <nuxt-link
-          to="/questions"
+          to="/question_groups"
           class="button--green">Hello</nuxt-link>
       </div>
     </div>
