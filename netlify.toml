@@ -1,0 +1,4 @@
+[build]
+  base = "nanakuro_client"
+  publish = "nanakuro_client/dist"
+  command = "npm run bild:prod"
