@@ -3,7 +3,7 @@ const path = require('path')
 import colors from 'vuetify/es5/util/colors'
 
 module.exports = {
-  mode: 'universal',
+  mode: 'spa',
   /*
   ** Headers of the page
   */
@@ -27,7 +27,7 @@ module.exports = {
     scrollBehavior: function (to, from, savedPosition) {
       return { x: 0, y: 0 }
     }
-  }
+  },
 
   /*
   ** Customize the progress-bar color
