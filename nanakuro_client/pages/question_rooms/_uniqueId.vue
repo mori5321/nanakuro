@@ -30,7 +30,6 @@
           <!-- あとでカスタムアイコンできれいにする -->
           <div class="subheader-content">
             <div class="line-it-button" data-lang="ja" data-type="share-d" data-url="https://localhost:3000/question_rooms/13f4baf53a37c0444e5c28ea" style="display: none;"></div>
-            <script src="https://d.line-scdn.net/r/web/social-plugin/js/thirdparty/loader.min.js" async="async" defer="defer"></script>
 
             <a href="https://twitter.com/share?ref_src=twsrc%5Etfw" class="twitter-share-button" data-size="large" data-hashtags="#nanakuro" data-show-count="false">Tweet</a><script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
           </div>
@@ -75,7 +74,7 @@ export default {
       // shown: false,
     }
   },
-  mounted: function() {
+  created: function() {
     LineIt.loadButton()
     // const params = this.$route.params
     // Api().get(`/question_groups/${params.id}`)

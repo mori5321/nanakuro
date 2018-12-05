@@ -32,6 +32,7 @@
 import Api from '@/services/Api.js'
 
 export default {
+  scrollToTop: true,
   data() {
     return {
       questionGroup: "",

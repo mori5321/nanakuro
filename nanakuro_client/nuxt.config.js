@@ -20,11 +20,18 @@ module.exports = {
         rel: 'stylesheet',
         href: 'https://fonts.googleapis.com/earlyaccess/notosansjapanese.css'
       }
+    ],
+    script: [
+      {
+        src: "https://d.line-scdn.net/r/web/social-plugin/js/thirdparty/loader.min.js",
+        async: "async",
+        defer: "defer"
+      }
     ]
   },
 
   router: {
-    scrollBehavior: function (to, from, savedPosition) {
+    scrollBehavior(to, from, savedPosition) {
       return { x: 0, y: 0 }
     }
   },
