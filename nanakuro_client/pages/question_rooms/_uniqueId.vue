@@ -74,7 +74,7 @@ export default {
       // shown: false,
     }
   },
-  created: function() {
+  mounted: function() {
     LineIt.loadButton()
     // const params = this.$route.params
     // Api().get(`/question_groups/${params.id}`)

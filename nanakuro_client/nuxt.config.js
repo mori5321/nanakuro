@@ -2,8 +2,13 @@ const pkg = require('./package')
 const path = require('path')
 import colors from 'vuetify/es5/util/colors'
 
+const environment = process.env.NODE_ENV || 'development';
+const envSet = require(`./env.${environment}.js`)
+
 module.exports = {
   mode: 'spa',
+
+  env: envSet,
   /*
   ** Headers of the page
   */
@@ -24,8 +29,7 @@ module.exports = {
     script: [
       {
         src: "https://d.line-scdn.net/r/web/social-plugin/js/thirdparty/loader.min.js",
-        async: "async",
-        defer: "defer"
+        async: true
       }
     ]
   },
