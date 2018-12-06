@@ -18,8 +18,8 @@ Hanami.configure do
     #    adapter :sql, 'postgresql://localhost/nanakuro_server_development'
     #    adapter :sql, 'mysql://localhost/nanakuro_server_development'
     #
-    # adapter :sql, ENV.fetch('DATABASE_URL')
-    adapter :sql, 'mysql://localhost/nanakuro_server_development'
+    adapter :sql, ENV.fetch('DATABASE_URL')
+    # adapter :sql, 'mysql://localhost/nanakuro_server_development'
 
     ##
     # Migrations
