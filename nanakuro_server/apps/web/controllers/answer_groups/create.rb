@@ -6,7 +6,7 @@ module Web
         expose :answer_group
 
         params do
-          required(:question_group_id).filled(:int?)
+          required(:question_room_id).filled(:int?)
           required(:name).filled(:str?)
         end
 
@@ -20,7 +20,7 @@ module Web
         private
           def answer_group_params
             {
-              question_group_id: @params.get(:question_group_id),
+              question_room_id: @params.get(:question_room_id),
               name: @params.get(:name)
             }
           end

@@ -17,3 +17,4 @@ resources :answer_groups, only: :create
 post '/sign_in', to: 'sessions#create'
 delete '/sign_out', to: 'sessions#destroy'
 
+post '/answers', to: 'answers#create'
