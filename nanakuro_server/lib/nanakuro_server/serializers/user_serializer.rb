@@ -1,3 +1,5 @@
+require_relative 'base_serializer.rb'
+
 class UserSerializer < BaseSerializer
   attribute :token
 
