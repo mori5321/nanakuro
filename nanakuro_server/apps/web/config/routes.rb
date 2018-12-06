@@ -12,9 +12,10 @@ resources :question_groups, only: [:index, :show] do
 end
 resources :users, only: :create
 
-resources :answer_groups, only: :create
+resources :answer_groups, only: :create do
+  resources :answers, only: [:create]
+end
 
 post '/sign_in', to: 'sessions#create'
 delete '/sign_out', to: 'sessions#destroy'
 
-post '/answers', to: 'answers#create'
