@@ -12,5 +12,8 @@ resources :question_groups, only: [:index, :show] do
 end
 resources :users, only: :create
 
+resources :answer_groups, only: :create
+
 post '/sign_in', to: 'sessions#create'
 delete '/sign_out', to: 'sessions#destroy'
+
