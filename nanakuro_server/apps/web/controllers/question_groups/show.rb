@@ -11,6 +11,7 @@ module Web
 
         def call(params)
           @question_group = QuestionGroupRepository.new.find_with_questions(params[:id])
+          halt 404 unless @question_group
         end
       end
     end
