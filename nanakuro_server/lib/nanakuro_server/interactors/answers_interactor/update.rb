@@ -6,13 +6,15 @@ module AnswersInteractor
 
     expose :answer
 
-    def initialize(repository: AnswerRepository.new)
+    def initialize(id, answer_params, repository: AnswerRepository.new)
+      @id = id
+      @answer_params = answer_params
       @repository = repository
     end
 
 
-    def call(id, answer_params)
-      @answer = @repository.update(id, answer_params)
+    def call
+      @answer = @repository.update(@id, @answer_params)
     end
 
   end

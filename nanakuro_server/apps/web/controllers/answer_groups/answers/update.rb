@@ -14,9 +14,13 @@ module Web
 
           def call(params)
             halt 400 unless params.valid?
-            result = AnswersInteractor::Update.new.call(@params.get(:id), answer_params)
-            @answer = result.answer
-            self.status = 201 # TODO: correct status?
+            result = AnswersInteractor::Update.new(@params.get(:id), answer_params).call
+            if result.successful?
+              @answer = result.answer
+              self.status = 201 # TODO: correct status?
+            else
+              halt 400
+            end
           end
 
         private
