@@ -6,14 +6,20 @@ module AnswerGroupsInteractor
 
     expose :answer_group
 
-    def initialize(repository: AnswerGroupRepository.new)
+    def initialize(answer_group_params, repository: AnswerGroupRepository.new)
+      @answer_group_params = answer_group_params
       @repository = repository
     end
 
 
-    def call(answer_group_params)
-      @answer_group = @repository.create(answer_group_params)
+    def call
+      @answer_group = @repository.create(@answer_group_params)
     end
+
+    private
+      def valid?
+        QuestionRoomRepository.new.find(@answer_group_params[:question_room_id]) && @answer_group_params[:name]
+      end
 
   end
 end

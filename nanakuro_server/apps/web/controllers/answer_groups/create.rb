@@ -12,9 +12,13 @@ module Web
 
         def call(params)
           halt 400 unless params.valid?
-          result = AnswerGroupsInteractor::Create.new.call(answer_group_params)
-          @answer_group = result.answer_group
-          self.status = 201
+          result = AnswerGroupsInteractor::Create.new(answer_group_params).call
+          if result.successful?
+            @answer_group = result.answer_group
+            self.status = 201
+          else
+            halt 400
+          end
         end
 
         private
