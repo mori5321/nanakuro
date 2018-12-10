@@ -12,6 +12,11 @@ RSpec.describe "AnswerGroups#CreateAPI", type: :request do
     it "returns 201" do
       expect(last_response.status).to eq 201
     end
+
+    it "returns AnswerGroup associated with QuestionRoom" do
+      expect(AnswerGroupRepository.new.last.question_room_id).to eq @question_room.id
+    end
+
   end
 
   context "with valid question_room_id and name" do
