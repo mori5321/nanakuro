@@ -11,11 +11,15 @@ RSpec.describe "AnswerGroups::Answers#UpdateAPI", type: :request do
       @answer_group = AnswerGroupRepository.new.create(question_room_id: @question_room.id, name: "Tom")
       @answer = AnswerRepository.new.create(answer_group_id: @answer_group.id, text: "Cats", question_id: @question.id)
       patch "/answer_groups/#{@answer_group.id}/answers/#{@answer.id}",
-            { text: "Cats" }
+            { text: "Cash" }
     end
 
     it "returns 201" do
       expect(last_response.status).to eq 201
+    end
+
+    it "updates an Answer" do
+      expect(AnswerRepository.new.last.text).to eq "Cash"
     end
   end
 

@@ -11,6 +11,10 @@ RSpec.describe "QuestionGroups::QuestionRoom#CreateAPI", type: :request do
     it "returns 201 created" do
       expect(last_response.status).to eq 201
     end
+
+    it "creates QuestionRoom associated with QuestionGroup" do
+      expect(QuestionRoomRepository.new.last.question_group_id).to eq @question_group.id
+    end
   end
 
   context "invalid question_room_id is given" do
