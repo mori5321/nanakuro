@@ -18,7 +18,7 @@ module QuestionRoomsInteractor
 
     private
       def params_with_unique_id(params)
-        unique_id = UniqueIdGenerator.new(@repository).exec
+        unique_id = UniqueIdGeneratorService.new(@repository).exec
         params = params.merge(unique_id: unique_id)
       end
   end

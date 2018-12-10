@@ -1,4 +1,4 @@
-class UniqueIdGenerator
+class UniqueIdGeneratorService
   def initialize(repo, hexdigit: 12)
     @repo = repo
     @hexdigit = hexdigit
