@@ -1,4 +1,5 @@
-
+require_relative 'base_serializer.rb'
+require_relative 'each_serializer.rb'
 
 class QuestionGroupSerializer < BaseSerializer
   attribute :id, :title, :created_at, :updated_at, :questions
