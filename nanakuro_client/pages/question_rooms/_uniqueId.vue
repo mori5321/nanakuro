@@ -20,7 +20,7 @@
         <v-btn
           depressed
           large
-          class="teal lighten-2 white--text">回答する</v-btn>
+          class="teal lighten-2 white--text" @click="createAnswerGroup">回答する</v-btn>
       </v-layout>
 
       <v-layout>
@@ -65,7 +65,7 @@
 
 <script>
 
-'@/services/Api.js'
+import Api from '@/services/Api.js';
 
 export default {
   data() {
@@ -76,7 +76,7 @@ export default {
   },
   mounted: function() {
     LineIt.loadButton()
-    // const params = this.$route.params
+    const params = this.$route.params
     // Api().get(`/question_groups/${params.id}`)
     //   .then(res => {
     //     this.questionGroup = res.data
@@ -84,17 +84,21 @@ export default {
     //   }).catch(err => {
     //     console.log(err)
     //   })
+    // Api().get(`/question_rooms/${params.id}`)
   },
   methods: {
-    // createRoom: function(e) {
-    //   const params = this.$route.params
-    //   Api().post(`/question_groups/${params.id}/question_rooms`)
-    //     .then(res => {
-    //       console.log(res)
-    //     }).catch(err => {
-    //       console.log(err)
-    //     })
-    // }
+    createAnswerGroup: function(e) {
+      const params = this.$route.params
+      Api().post(`/answer_groups`, {
+        question_room_id: params.id
+      }).then(res => {
+        this.$router.push(
+          { path: `/answer_groups/${res.data.id}` }
+        )
+      }).catch(err => {
+        console.log(err)
+      })
+    }
   }
 }
 

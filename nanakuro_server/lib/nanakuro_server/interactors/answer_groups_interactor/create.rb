@@ -18,7 +18,7 @@ module AnswerGroupsInteractor
 
     private
       def valid?
-        QuestionRoomRepository.new.find(@answer_group_params[:question_room_id]) && @answer_group_params[:name]
+        QuestionRoomRepository.new.find_by_unique_id(@answer_group_params[:question_room_unique_id])
       end
 
   end
