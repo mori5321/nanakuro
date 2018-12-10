@@ -11,9 +11,6 @@ module QuestionRoomsInteractor
       @repository = repository
     end
 
-    def valid?
-      QuestionGroupRepository.new.find(@question_room_params[:question_group_id])
-    end
 
 
     def call
@@ -24,6 +21,10 @@ module QuestionRoomsInteractor
       def params_with_unique_id
         unique_id = UniqueIdGeneratorService.new(@repository).exec
         @question_room_params.merge(unique_id: unique_id)
+      end
+
+      def valid?
+        QuestionGroupRepository.new.find(@question_room_params[:question_group_id])
       end
   end
 end
