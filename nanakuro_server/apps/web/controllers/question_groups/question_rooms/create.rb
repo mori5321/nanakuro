@@ -14,9 +14,13 @@ module Web
             halt 400 unless params.valid?
             # repo = QuestionRoomRepository.new
             # @room = repo.create(question_room_params)
-            result = QuestionRoomsInteractor::Create.new.call(question_room_params)
-            @question_room = result.question_room
-            self.status = 201
+            result = QuestionRoomsInteractor::Create.new(question_room_params).call
+            if result.successful?
+              self.status = 201
+              @question_room = result.question_room
+            else
+              halt 400
+            end
           end
 
           private

@@ -9,7 +9,7 @@ RSpec.describe 'QuestionGroups#Index API', type: :request do
       get "/question_groups"
     end
 
-    it "returns 200" do
+    it "returns 200 OK" do
       expect(last_response.status).to be 200
     end
 

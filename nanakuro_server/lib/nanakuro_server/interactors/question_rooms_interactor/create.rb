@@ -6,20 +6,24 @@ module QuestionRoomsInteractor
 
     expose :question_room
 
-    def initialize(repository: QuestionRoomRepository.new)
+    def initialize(question_room_params, repository: QuestionRoomRepository.new)
+      @question_room_params = question_room_params
       @repository = repository
     end
 
+    def valid?
+      QuestionGroupRepository.new.find(@question_room_params[:question_group_id])
+    end
 
-    def call(question_room_params)
-      params = params_with_unique_id(question_room_params)
-      @question_room = @repository.create(params)
+
+    def call
+      @question_room = @repository.create(params_with_unique_id)
     end
 
     private
-      def params_with_unique_id(params)
+      def params_with_unique_id
         unique_id = UniqueIdGeneratorService.new(@repository).exec
-        params = params.merge(unique_id: unique_id)
+        @question_room_params.merge(unique_id: unique_id)
       end
   end
 end
